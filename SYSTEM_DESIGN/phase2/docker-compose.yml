@@ -1,0 +1,71 @@
+services:
+  nginx:
+    image: nginx
+    ports:
+      - "8000:80"
+    volumes:
+      - ./nginx1/nginx.conf:/etc/nginx/nginx.conf
+
+  firstgateway :
+   build : ./gateway
+   ports:
+     - '5000:9000'
+   env_file:
+      - ./gateway/.env
+   environment :
+    - SERVICE_NAME='1st gateway'  
+
+  secondgateway :
+   build : ./gateway
+   ports:
+     - '5001:9000'
+   env_file:
+      - ./gateway/.env
+   environment :
+    - SERVICE_NAME='2nd gateway'
+
+  thirdgateway :
+   build : ./gateway
+   ports:
+     - '5002:9000'
+   env_file:
+      - ./gateway/.env
+   environment :
+    - SERVICE_NAME='3rd gateway'   
+
+     
+
+   
+
+
+  product-services :
+    build : ./services/product
+    ports:
+      - '6003:2003'
+    env_file:
+      - ./services/product/.env
+
+  auth-services :
+    build : ./services/auth
+    ports:
+      - '6002:2002'
+    env_file:
+      - ./services/auth/.env
+
+  order-services:
+    build: ./services/order_service
+    ports:
+      - '6001:2001'
+    env_file:
+      - ./services/order_service/.env        
+
+
+
+
+
+
+  
+  
+
+
+        

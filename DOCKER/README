@@ -1,0 +1,105 @@
+=> docker container is a isolated ..
+hello lets learn backend with ai
+
+image is blueprint / template , to run container ..
+the image is pulled from docker hub.
+1. docker run -it ubuntu(image_name)  :- when this run '-it' help us to go under continer id . 
+                                         i.e. its not return to local .but its goes under container interaction.  
+---docker run (image name)            :-in this without 'it'its dont goes under the container id 
+                                        i.e. its returns to local ..
+// to see which container runnning :(when the container is start)
+2.docker ps
+
+// if the conatianer not start , to see alll con;tainer 
+3. docker ps -a
+
+// to check for images  (to see all images) 
+4. docker images 
+
+// to stop container not by manually
+5. docker stop e80f1730d24b (container id/name)
+
+// to start cotnainer 
+6. docker start c3fb2e1b974 (container name / id)
+
+// in particulaar conatiner, the will execute.
+7. docker exec -it (continer id/name) _______(bash = to go under conatiner and open terminal)
+
+// to delete a contianer 
+8. docker rm c3fb2e1b974 (container name / id)
+
+
+// how docker works internally ...
+
+1. plz refer  to image to in your mobile gallery 
+
+
+
+ ***  how to dockerize node application . ***
+- firstly download the container tools for suggestion ..
+- first make a file on 'Dockerfile'.
+- docker file ----{docker build -t tes(iamge name) .}------>docker image locally created -----> container run 
+
+
+
+
+
+
+
+
+
+
+how to optimized the dockerfile ..
+=>
+
+
+
+
+
+........................................................................
+
+=> the app which is runs at contianer and to run outisde browser for access that is prt mapping ..
+                 ** PORT MAPPING **
+docker run -it -p 8000:3000 test-image 
+                 local :container port 
+
+=> adding Environment Varible in run time 
+-  docker run -e PORT=8000 -p 8000:8000 my app
+
+              ## how to push custom image on Docker Hub ##
+=> docker push username/image-name
+1. docker login
+2. docker build -t username/image-name .
+3. docker push username/image-name
+4. docker run -it -e PORT=7000 -p 7000:7000 test-image
+
+
+# DOCKER COMPOSE
+=> when we run two container on differen two images ,docker compose help us to run multiple container .
+=> docker compose is a tool used to run multiple docker containers together using one file and one command .
+1.firstly ,first write in docker compose file .
+then run docker compose up or docker compose down
+docker compose up --build 
+docker compose down
+
+# docker networking : 1. bridge 2. host 3. none 
+=> docker network ls
+=> docker network inspect bridge
+=> docker network inspect host
+
+# custom network :
+=> docker network create name
+
+
+
+
+
+
+
+
+# docker volumes 
+=> wehn we stop container , we use docker volumes
+=> docker volumes store data permantly outside containers so data remains safe even if continers are delted or restarted ..
+
+
+                 
